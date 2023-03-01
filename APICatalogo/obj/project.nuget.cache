@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "47IBZhc5efYVrByx0Djo+9D9mo7yiJsy/7DFzFgcRYdo6A6NK/OZnY6OARa71jGL7Tau5vnQqiK7fQJ8Yj5h/w==",
+  "success": true,
+  "projectFilePath": "F:\\Júlio - GitHub\\APICatalogo\\APICatalogo\\APICatalogo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ClubPetro-092\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\ClubPetro-092\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\ClubPetro-092\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\ClubPetro-092\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\ClubPetro-092\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\ClubPetro-092\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
