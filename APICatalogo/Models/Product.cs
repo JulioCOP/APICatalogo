@@ -12,4 +12,10 @@ public class Product
     public float stock { get; set; }
 
     public DateTime DateRegistration { get; set; }
+
+    //propriedade que mapea a coluna Id, criada na tabela produtos
+    public int CategoryId { get; set; }
+
+    // propriedade que define que cada produto está mapeada por um produto
+    public Category? Category { get; set; }
 }
