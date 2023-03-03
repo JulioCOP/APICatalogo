@@ -16,6 +16,6 @@ public class Product
     //propriedade que mapea a coluna Id, criada na tabela produtos
     public int CategoryId { get; set; }
 
-    // propriedade que define que cada produto está mapeada por um produto
+    // propriedade que define que cada produto está relacionada por um produto
     public Category? Category { get; set; }
 }

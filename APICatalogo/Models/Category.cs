@@ -15,6 +15,6 @@ public class Category
 
     public string? ImageUrl { get; set; }
 
-    //definindo a propriedade de navegação entre as tabelas -  estebelecendo a relação de Coluna para produtos
-    public ICollection<Product>? Products { get; set; }
+    //definindo a propriedade de navegação entre as tabelas -  estebelecendo a relação de Coluna para produtos e não são mapeadas
+    public ICollection<Product>? Products { get; set; } 
 }
