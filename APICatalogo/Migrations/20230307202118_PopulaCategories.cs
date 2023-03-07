@@ -4,11 +4,11 @@
 
 namespace APICatalogo.Migrations
 {
-    public partial class PopulaCategory : Migration
+    public partial class PopulaCategories : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
+            migrationBuilder.Sql("Insert into Categories(Name, ImageUrl) Values('Bebidas', 'bebidas.jpg') ");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
