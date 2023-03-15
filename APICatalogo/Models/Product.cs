@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace APICatalogo.Models;
 
@@ -33,5 +34,7 @@ public class Product
     public int CategoryId { get; set; }
 
     // propriedade que define que cada produto está relacionada por um produto
+
+    [JsonIgnore]
     public Category? Category { get; set; }
 }
