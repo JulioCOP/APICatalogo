@@ -21,24 +21,43 @@ namespace APICatalogo.Controllers
         [HttpGet("products")]
         public ActionResult<IEnumerable<Category>> GetCategoriesProducts()
         {
-            return _context.Categories.Include(p=> p.Products).ToList();
+            return _context.Categories.Include(p => p.Products).ToList();
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<Category>> Get()
         {
-            return _context.Categories.ToList();
+            try
+            {
+                throw new DataMisalignedException();
+                //return _context.Categories.ToList();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Ocorreu algum problema no banco ao tentar realizar sua solicitação");
+            }
+
         }
 
         [HttpGet("{id:int}", Name = "ObterCategoria")]
         public ActionResult<Category> Get(int id)
         {
-            var category = _context.Categories.FirstOrDefault(p => p.CategoryID == id);
-            if (category == null)
+            try
             {
-                return NotFound("Categoria não encontrada!");
+                var category = _context.Categories.FirstOrDefault(p => p.CategoryID == id);
+                if (category == null)
+                {
+                    return NotFound($"Categoria com id= {id} não encontrada!");
+                }
+                return Ok(category);
             }
-            return Ok(category);
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Ocorreu algum problema no banco ao tentar realizar sua solicitação");
+            }
+
         }
 
         [HttpPost]
@@ -46,11 +65,11 @@ namespace APICatalogo.Controllers
         {
             if (category is null)
 
-                return BadRequest();
+                return BadRequest("Dados inválidos");
             _context.Categories.Add(category);
             _context.SaveChanges();
 
-            return new CreatedAtRouteResult("ObterCategoria", 
+            return new CreatedAtRouteResult("ObterCategoria",
                    new { id = category.CategoryID }, category);
         }
 
@@ -59,7 +78,7 @@ namespace APICatalogo.Controllers
         {
             if (id != category.CategoryID)
             {
-                return BadRequest();
+                return BadRequest("Dados inválidos");
             }
             _context.Entry(category).State = EntityState.Modified;
             _context.SaveChanges();
@@ -73,7 +92,7 @@ namespace APICatalogo.Controllers
             var category = _context.Categories.FirstOrDefault(p => p.CategoryID == id);
             if (category is null)
             {
-                return NotFound("Categoria não encontrada!");
+                return NotFound($"Categoria com id={id} não encontrada!");
             }
             _context.Categories.Remove(category);
             _context.SaveChanges();
