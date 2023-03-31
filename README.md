@@ -1,5 +1,6 @@
 # APICatalogo
-Criar uma Web Api para um catálogo de produtos / categoria que podem atender uma rede de lojas ou supermercados.
+Para este projeto, foi criado uma Web Api para um catálogo de produtos / categoria que podem atender uma rede de lojas ou supermercados, de acordo com a necessidade
+de registro de mercadorias e vendas.
 
 Criado um um serviço RESTful, que permita que aplicativos que irão consumir a API gerenciem o catálogo de produtos e categorias. 
   Para atender a demanda acima, foi necessário `expor endpoints` para *criar, ler, editar e excluir produtos**  e também para 
