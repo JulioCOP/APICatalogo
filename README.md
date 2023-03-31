@@ -9,6 +9,7 @@ Criado um um serviço RESTful, que permita que aplicativos que irão consumir a 
 de uma categoria especifica**
 
 A seguir segue uma imagem que ilustra a estrutura do projeto:
+
 ![image](https://user-images.githubusercontent.com/109772999/229134273-90f1ccf3-33a2-41b5-a3b9-6aefe1c5689e.png)
 
 O banco de dados usado para o projeto foi MySQL Workbench e é um banco banco de dados local, o projeto ainda não consome um API externa.
