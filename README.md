@@ -14,5 +14,5 @@ A seguir segue uma imagem que ilustra a estrutura do projeto:
 O banco de dados usado para o projeto foi MySQL Workbench e é um banco banco de dados local, o projeto ainda não consome um API externa.
 
 Para que possa atender todas as requisições do CRUD, segue também uma imagem exemplificando o funcionamento dessa aplicação e seu funcionamento 
-para todas as plataformas de acordo com a requisição que será realizada pelo usuário.
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/efd6711e-4477-4592-a009-3a5cf3d1e586/Untitled.png)
+para todas as plataformas de acordo com a requisição que será realizada pelo usuário:
+![image](https://user-images.githubusercontent.com/109772999/229135566-177c93af-03e8-4330-9dab-5b2accd14129.png)
