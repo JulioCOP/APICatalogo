@@ -10,7 +10,7 @@ namespace APICatalogo.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly AppDbContext _context; //apenas leitura da calsse db context
+        private readonly AppDbContext _context; //apenas leitura da classe db context
 
         public ProductsController(AppDbContext context)
         {
@@ -25,7 +25,8 @@ namespace APICatalogo.Controllers
             var products = _context.Products.AsNoTracking().ToList();
             if (products is null)
             {
-                return NotFound("Produtos não encontrados!"); //Método action é retorna um tipo ActionResult
+                return NotFound("Produtos não encontrados!"); 
+                //Método action é retorna um tipo ActionResult
             }
             return products;
         }
@@ -68,7 +69,8 @@ namespace APICatalogo.Controllers
             _context.Entry(product).State = EntityState.Modified;
             _context.SaveChanges();
 
-            return Ok(product); // ao retornar como método ok, é possível visualizar o produto alterado
+            return Ok(product); 
+            // ao retornar como método ok, é possível visualizar o produto alterado
         }
 
         [HttpDelete("{id:int}")]
