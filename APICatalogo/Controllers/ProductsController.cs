@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APICatalogo.Controllers
 {
-    [Route("[controller]")] //Rota da requisição para acessar o controlador, sendo necessário informar apenas a URL "Produtos"
+    [Route("api/[controller]")] //Rota da requisição para acessar o controlador, sendo necessário informar apenas a URL "Produtos"
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -18,7 +18,8 @@ namespace APICatalogo.Controllers
         }
         // criação do método action  que retornam dados, ou seja, métodos que usam  metodo HTTP GET
 
-        [HttpGet]
+
+        [HttpGet]  // /produtos -> quando acessar a classe produtos o método get em questão será acionado
         public ActionResult<IEnumerable<Product>> Get()
         {
             var products = _context.Products.AsNoTracking().ToList();
@@ -31,7 +32,7 @@ namespace APICatalogo.Controllers
         //metodo Get para retorno dos produtos pelo ID
         //Necessário repassa o ID pelo REQUEST
 
-        [HttpGet("{id:int}", Name = "ObterPoduto")]
+        [HttpGet("{id:int}", Name = "ObterPoduto")] // api/produtos/"id"
         public ActionResult<Product> ProductGet(int id)
         {
             var product = _context.Products.FirstOrDefault(p=>p.ProductId== id);
@@ -43,7 +44,7 @@ namespace APICatalogo.Controllers
         }
         //metodo action para criar um novo produto
 
-        [HttpPost]
+        [HttpPost] // /produtos
         public ActionResult Post(Product product)
         {
             if(product is null)
