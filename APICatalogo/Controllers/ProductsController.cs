@@ -20,7 +20,7 @@ namespace APICatalogo.Controllers
         // criação do método action  que retornam dados, ou seja, métodos que usam  metodo HTTP GET
 
 
-        [HttpGet]  // /produtos -> quando acessar a classe produtos o método get em questão será acionado
+        [HttpGet("{id:int:min(1)}", Name="ObterProduto")]  // /produtos -> quando acessar a classe produtos o método get em questão será acionado
         public ActionResult<Product> Get(int id)
         {
             var products = _context.Products.AsNoTracking().FirstOrDefault(p=>p.ProductId == id);
@@ -46,7 +46,7 @@ namespace APICatalogo.Controllers
         }
         //metodo action para criar um novo produto
 
-        [HttpPost] // /produtos
+        [HttpPost("id:max(5)", Name ="ObterProduto")] // /produtos
         public ActionResult Post(Product product)
         {
             if(product is null)
