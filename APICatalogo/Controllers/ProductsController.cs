@@ -10,7 +10,8 @@ namespace APICatalogo.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly AppDbContext _context; //apenas leitura da classe db context
+        private readonly AppDbContext _context; 
+        //apenas leitura da classe db context
 
         public ProductsController(AppDbContext context)
         {
@@ -20,12 +21,12 @@ namespace APICatalogo.Controllers
 
 
         [HttpGet]  // /produtos -> quando acessar a classe produtos o método get em questão será acionado
-        public ActionResult<IEnumerable<Product>> Get()
+        public ActionResult<Product> Get(int id)
         {
-            var products = _context.Products.AsNoTracking().ToList();
+            var products = _context.Products.AsNoTracking().FirstOrDefault(p=>p.ProductId == id);
             if (products is null)
             {
-                return NotFound("Produtos não encontrados!"); 
+                return NotFound("Produto não encontrado!"); 
                 //Método action é retorna um tipo ActionResult
             }
             return products;
