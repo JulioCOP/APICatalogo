@@ -34,7 +34,7 @@ namespace APICatalogo.Controllers
         //metodo Get para retorno dos produtos pelo ID
         //Necessário repassa o ID pelo REQUEST
 
-        [HttpGet("{id:int}", Name = "ObterPoduto")] // api/produtos/"id"
+        [HttpGet] // api/produtos/"id"
         public ActionResult<Product> ProductGet(int id)
         {
             var product = _context.Products.FirstOrDefault(p=>p.ProductId== id);
@@ -46,7 +46,7 @@ namespace APICatalogo.Controllers
         }
         //metodo action para criar um novo produto
 
-        [HttpPost("id:max(5)", Name ="ObterProduto")] // /produtos
+        [HttpPost] // /produtos
         public ActionResult Post(Product product)
         {
             if(product is null)
@@ -60,7 +60,7 @@ namespace APICatalogo.Controllers
                 new { id = product.ProductId }, product);
         }
         //metodo action para atualizar um produto
-        [HttpPut("{id:int}")]
+        [HttpPut]
         public ActionResult Put(int id, Product product)
         {
             if(id != product.ProductId)
