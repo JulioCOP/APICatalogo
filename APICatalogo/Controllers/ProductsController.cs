@@ -2,7 +2,9 @@
 using APICatalogo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
 
 namespace APICatalogo.Controllers
 {
@@ -19,9 +21,17 @@ namespace APICatalogo.Controllers
         }
         // criação do método action  que retornam dados, ou seja, métodos que usam  metodo HTTP GET
 
+        [HttpGet] // api/produtos/"id"
+
+        public async Task<ActionResult<IEnumerable<Product>>> Get()
+        {
+            return await _context.Products.AsNoTracking().ToListAsync();
+        }
 
         [HttpGet("{id:int:min(1)}", Name="ObterProduto")]  // /produtos -> quando acessar a classe produtos o método get em questão será acionado
-        public ActionResult<Product> Get(int id)
+        public ActionResult<Product> Get([FromQuery]int id) 
+                                    // FromQuerry id vem da cadeia de consulta,
+                                    // ou seja, já mostra o valor sem precisar informar um nome
         {
             var products = _context.Products.AsNoTracking().FirstOrDefault(p=>p.ProductId == id);
             if (products is null)
@@ -34,16 +44,7 @@ namespace APICatalogo.Controllers
         //metodo Get para retorno dos produtos pelo ID
         //Necessário repassa o ID pelo REQUEST
 
-        [HttpGet] // api/produtos/"id"
-        public ActionResult<Product> ProductGet(int id)
-        {
-            var product = _context.Products.FirstOrDefault(p=>p.ProductId== id);
-            if (product == null)
-            {
-                return NotFound("Produto não encontrado!");
-            }
-            return product;
-        }
+ 
         //metodo action para criar um novo produto
 
         [HttpPost] // /produtos

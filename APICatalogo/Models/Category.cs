@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.VisualBasic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -22,6 +23,7 @@ public class Category
     
     [Required]
     [StringLength(300)]
+    [BindNever] //propriedade ImageUrl, ignora a vinculação da propriedade 
     public string? ImageUrl { get; set; }
 
     //definindo a propriedade de navegação entre as tabelas 
