@@ -1,4 +1,5 @@
 using APICatalogo.Context;
+using APICatalogo.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -23,6 +24,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
                                  options.UseMySql(mySqlConnection,
                                  ServerVersion.AutoDetect(mySqlConnection))); //string de conexão
 
+builder.Services.AddTransient<IMeuServico, MeuServico>();
+//AddTransient - tempo de vida -  a instancia do serviço será criada cada vez que for solicitada
 
 var app = builder.Build(); //Configure()
 
